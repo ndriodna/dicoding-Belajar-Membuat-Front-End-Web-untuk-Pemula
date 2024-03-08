@@ -44,14 +44,13 @@ function findTodoIndex(todoId) {
   return -1;
 }
 
-
 /**
  * Fungsi ini digunakan untuk memeriksa apakah localStorage didukung oleh browser atau tidak
  *
  * @returns boolean
  */
 function isStorageExist() /* boolean */ {
-  if (typeof (Storage) === undefined) {
+  if (typeof Storage === undefined) {
     alert('Browser kamu tidak mendukung local storage');
     return false;
   }
@@ -88,8 +87,7 @@ function loadDataFromStorage() {
 }
 
 function makeTodo(todoObject) {
-
-  const {id, task, timestamp, isCompleted} = todoObject;
+  const { id, task, timestamp, isCompleted } = todoObject;
 
   const textTitle = document.createElement('h2');
   textTitle.innerText = task;
@@ -102,12 +100,11 @@ function makeTodo(todoObject) {
   textContainer.append(textTitle, textTimestamp);
 
   const container = document.createElement('div');
-  container.classList.add('item', 'shadow')
+  container.classList.add('item', 'shadow');
   container.append(textContainer);
   container.setAttribute('id', `todo-${id}`);
 
   if (isCompleted) {
-
     const undoButton = document.createElement('button');
     undoButton.classList.add('undo-button');
     undoButton.addEventListener('click', function () {
@@ -122,7 +119,6 @@ function makeTodo(todoObject) {
 
     container.append(undoButton, trashButton);
   } else {
-
     const checkButton = document.createElement('button');
     checkButton.classList.add('check-button');
     checkButton.addEventListener('click', function () {
@@ -140,7 +136,12 @@ function addTodo() {
   const timestamp = document.getElementById('date').value;
 
   const generatedID = generateId();
-  const todoObject = generateTodoObject(generatedID, textTodo, timestamp, false);
+  const todoObject = generateTodoObject(
+    generatedID,
+    textTodo,
+    timestamp,
+    false
+  );
   todos.push(todoObject);
 
   document.dispatchEvent(new Event(RENDER_EVENT));
@@ -168,7 +169,6 @@ function removeTaskFromCompleted(todoId /* HTMLELement */) {
 }
 
 function undoTaskFromCompleted(todoId /* HTMLELement */) {
-
   const todoTarget = findTodo(todoId);
   if (todoTarget == null) return;
 
@@ -178,7 +178,6 @@ function undoTaskFromCompleted(todoId /* HTMLELement */) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-
   const submitForm /* HTMLFormElement */ = document.getElementById('form');
 
   submitForm.addEventListener('submit', function (event) {
