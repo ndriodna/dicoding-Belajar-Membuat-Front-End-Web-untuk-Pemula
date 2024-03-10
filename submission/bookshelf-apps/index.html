@@ -20,7 +20,7 @@
       <h1 class="head_bar__title">Bookshelf Apps</h1>
     </header>
     <main>
-      <section class="input_section">
+      <section class="input_section" id="formInput">
         <h2>Masukkan Buku Baru</h2>
         <form id="inputBook">
           <div class="input">
@@ -40,7 +40,7 @@
             <input id="inputBookIsComplete" type="checkbox" />
           </div>
           <button id="bookSubmit" type="submit">
-            Masukkan Buku ke rak <span>Belum selesai dibaca</span>
+            <span>Masukkan Buku ke rak</span>
           </button>
         </form>
       </section>
@@ -52,7 +52,7 @@
           <input
             id="searchBookTitle"
             type="text"
-            placeholder="masukan minimal 2 kata"
+            placeholder="masukan minimal 3 kata"
           />
           <button id="reset" hidden="true">Reset</button>
         </form>
@@ -92,8 +92,10 @@
         </div>
       </section>
     </main>
-    <dialog class="modal" id="modal">
-      <!-- <h3 class="header">
+    <section class="overlay" id="overlay">
+      <dialog class="modal" id="modal">
+        test
+        <!-- <h3 class="header">
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
       </h3>
       <div class="body">
@@ -109,7 +111,9 @@
         <button>batal</button>
         <button>hapus</button>
       </div> -->
-    </dialog>
+      </dialog>
+    </section>
+
     <script src="js/main.js" type="text/javascript"></script>
   </body>
 </html>
